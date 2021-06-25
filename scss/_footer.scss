@@ -1,0 +1,30 @@
+//Transformando pixels em rem
+@function calculateRem($size){
+    @return $size / 16px * 1rem;
+}
+
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+/*Este trecho de estilo se refere 
+ao rodapé do nosso bloco */
+.footer{
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    //Este trecho de estilo posiciona o footer na parte debaixo da nossa tela
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__logo{
+        max-width: 100px;
+    }
+    &__txt{
+        margin: auto;
+        @include fontSize(14px);
+    }
+}
